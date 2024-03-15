@@ -1,9 +1,7 @@
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
-// import { Formik, Form, Field, ErrorMessage } from "formik";
-// import { useId } from "react";
-// import * as Yup from "yup";
+import { nanoid } from 'nanoid';
 import  { useState } from 'react';
 import "./App.css";
 
@@ -24,12 +22,21 @@ function App() {
     setFilter(text);
   }
 
+  const addContact = (name, number) => {
+    const newContact = {
+      id: nanoid(), 
+      name,
+      number,
+    };
+    setContacts([...contacts, newContact]);
+  };
+
   const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase())
   );
   return (
     <div>
     <h1>Phonebook</h1>
-    <ContactForm />
+    <ContactForm onAddContact ={addContact}/>
     <SearchBox  filter={filter} onFilterChange={handleFilterChange}/>
     <ContactList contacts={filteredContacts} onDelete={deleteContact}/>
   </div>

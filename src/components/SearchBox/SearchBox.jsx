@@ -10,7 +10,8 @@ const SearchBox = ({filter, onFilterChange}) => {
   
     return (
       <div>
-        <input type="text" value={filter} onChange={handleChange} />
+         <label htmlFor="search">Find contacts by name</label>
+        <input type="text" id ="search" value={filter} onChange={handleChange} />
      
       </div>
     );
