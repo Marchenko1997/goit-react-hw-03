@@ -15,15 +15,23 @@ function App() {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ]);
   const [filter, setFilter] = useState('');
+
   const deleteContact =(id) => {
     setContacts(prevContacts => prevContacts.filter(contact => contact.id !==id))
   }
+
+  const handleFilterChange = (text) => {
+    setFilter(text);
+  }
+
+  const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
   return (
     <div>
     <h1>Phonebook</h1>
     <ContactForm />
-    <SearchBox />
-    <ContactList contacts={contacts} onDelete={deleteContact}/>
+    <SearchBox  filter={filter} onFilterChange={handleFilterChange}/>
+    <ContactList contacts={filteredContacts} onDelete={deleteContact}/>
   </div>
   )
 }

@@ -1,17 +1,24 @@
-import  { useState } from 'react';
+
 import PropTypes from 'prop-types';
-const SearchBox = ({filter}) => {
-    const [inputValue, setInputValue] = useState("");
+const SearchBox = ({filter, onFilterChange}) => {
+   
   
     const handleChange = (evt) => {
-      setInputValue(evt.target.value);
+      const text=evt.target.value;
+      onFilterChange(text);
     };
   
     return (
       <div>
-        <input type="text" value={inputValue} onChange={handleChange} />
-        <p>{inputValue}</p>
+        <input type="text" value={filter} onChange={handleChange} />
+     
       </div>
     );
   };
+
+  SearchBox.propTypes = { 
+    filter: PropTypes.string.isRequired, 
+    onFilterChange: PropTypes.func.isRequired, 
+  };
+  
   export default SearchBox;
