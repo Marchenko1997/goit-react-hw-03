@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
+import css from './ContactForm.module.css';
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -25,19 +26,19 @@ const ContactForm = ({onAddContact}) => {
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
-      <Form>
-        <div>
-          <label htmlFor={nameFieldId}>Name</label>
-          <Field type="text" name="name" id={nameFieldId} />
+      <Form className={css.form}>
+        <div className={css.fieldname}>
+          <label htmlFor={nameFieldId} className={css.labelname} >Name</label>
+          <Field type="text" name="name" id={nameFieldId}  className={css.inputname}/>
           <ErrorMessage name="name" as="span" />
         </div>
 
         <div>
-          <label htmlFor={numberFieldId}>Number</label>
-          <Field type="text" name="number" id={numberFieldId} />
+          <label htmlFor={numberFieldId}  className={css.labelnumber}>Number</label>
+          <Field type="text" name="number" id={numberFieldId} className={css.inputnumber} />
           <ErrorMessage name="number" as="span" />
         </div>
-        <button type="submit">Add contact</button>
+        <button type="submit" className={css.btnaddcontact}>Add contact</button>
       </Form>
     </Formik>
   );

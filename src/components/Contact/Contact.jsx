@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import css from './Contact.module.css'
 
 const Contact = ({contact, onDelete}) => {
     const {id ,name, number}= contact;
@@ -8,9 +9,9 @@ const Contact = ({contact, onDelete}) => {
       };
   return (
     <div>
-        <p> {name}</p>
-        <p> {number}</p>
-      <button onClick={handleDelete}>Delete</button>
+        <p className={css.itemname}> {name}</p>
+        <p className={css.itemnumber}> {number}</p>
+      <button onClick={handleDelete} className={css.btndelete}>Delete</button>
     </div>
   );
 };

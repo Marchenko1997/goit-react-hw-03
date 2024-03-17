@@ -1,5 +1,6 @@
 
 import PropTypes from 'prop-types';
+import css from './SearchBox.module.css';
 const SearchBox = ({filter, onFilterChange}) => {
    
   
@@ -9,9 +10,9 @@ const SearchBox = ({filter, onFilterChange}) => {
     };
   
     return (
-      <div>
-         <label htmlFor="search">Find contacts by name</label>
-        <input type="text" id ="search" value={filter} onChange={handleChange} />
+      <div className={css.searchbox}>
+         <label htmlFor="search"  className={css.searchlabel}>Find contacts by name</label>
+        <input type="text" id ="search" value={filter} onChange={handleChange}  className={css.searchinput}/>
      
       </div>
     );
