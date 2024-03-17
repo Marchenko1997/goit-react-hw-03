@@ -1,6 +1,7 @@
 
 import PropTypes from 'prop-types';
 import css from './SearchBox.module.css';
+import { IoIosContacts } from "react-icons/io";
 const SearchBox = ({filter, onFilterChange}) => {
    
   
@@ -11,7 +12,7 @@ const SearchBox = ({filter, onFilterChange}) => {
   
     return (
       <div className={css.searchbox}>
-         <label htmlFor="search"  className={css.searchlabel}>Find contacts by name</label>
+         <label htmlFor="search"  className={css.searchlabel}> <IoIosContacts  className={css.searchicon} />Find contacts by name</label>
         <input type="text" id ="search" value={filter} onChange={handleChange}  className={css.searchinput}/>
      
       </div>

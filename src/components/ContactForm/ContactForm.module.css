@@ -11,18 +11,17 @@
 .labelname {
     margin-left: 2px;
     display: flex;
-    flex-direction: column;
     gap: 10px;
     margin-bottom: 5px;
-    align-items: flex-start;
+    align-items: center;
 }
 .labelnumber {
     margin-left: 2px;
     display: flex;
-    flex-direction: column;
     gap: 10px;
     margin-bottom: 5px;
-    align-items: flex-start;
+    align-items: center;
+    margin-top: 10px;
 }
 
 

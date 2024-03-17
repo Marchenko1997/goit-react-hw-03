@@ -7,10 +7,13 @@
 .searchlabel {
     margin-left: 2px;
     display: flex;
-    flex-direction: column;
     gap: 10px;
     margin-bottom: 5px;
     align-items: flex-start;
+}
+
+.searchicon {
+    font-size: 1.5rem; 
 }
 
 .searchinput {

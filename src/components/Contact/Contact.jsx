@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './Contact.module.css'
+import { BsFillPersonFill } from "react-icons/bs";
+import { FaPhone } from "react-icons/fa6";
 
 const Contact = ({contact, onDelete}) => {
     const {id ,name, number}= contact;
@@ -9,8 +11,8 @@ const Contact = ({contact, onDelete}) => {
       };
   return (
     <div>
-        <p className={css.itemname}> {name}</p>
-        <p className={css.itemnumber}> {number}</p>
+        <p className={css.itemname}><BsFillPersonFill />{name}</p>
+        <p className={css.itemnumber}> <FaPhone /> {number}</p>
       <button onClick={handleDelete} className={css.btndelete}>Delete</button>
     </div>
   );
